@@ -1,0 +1,368 @@
+{
+  "specVersion": "0.1.0",
+  "metadata": {
+    "specVersion": "0.1.0",
+    "appName": "basic-app",
+    "appVersion": "unknown",
+    "generatedAt": "2026-02-12T05:47:36.198Z",
+    "generatedBy": "@akg/extractor-nextjs@0.1.0",
+    "baseUrl": "http://localhost:3000",
+    "platform": "web",
+    "tags": {
+      "framework": "next.js",
+      "routerType": "app",
+      "nextVersion": "^15.0.0"
+    }
+  },
+  "nodes": [
+    {
+      "id": "screen:/",
+      "type": "screen",
+      "name": "Home",
+      "route": "/",
+      "source": "code",
+      "elements": [],
+      "onLoadApiCalls": [],
+      "accessibility": {
+        "score": null,
+        "violations": []
+      },
+      "performance": {
+        "loadTimeMs": null,
+        "lcpMs": null,
+        "cls": null,
+        "fidMs": null,
+        "tbtMs": null
+      },
+      "metadata": {
+        "title": "Home",
+        "authRequired": false,
+        "requiredRoles": [],
+        "custom": {
+          "filePath": "/Volumes/Mango/scratchpad/shiprite/akg/test/fixtures/basic-app/app/page.tsx",
+          "hasLayout": false,
+          "hasLoading": false,
+          "hasError": false,
+          "hasNotFound": false,
+          "isParallel": false,
+          "isIntercepting": false
+        }
+      }
+    },
+    {
+      "id": "screen:/about",
+      "type": "screen",
+      "name": "About",
+      "route": "/about",
+      "source": "code",
+      "elements": [],
+      "onLoadApiCalls": [],
+      "accessibility": {
+        "score": null,
+        "violations": []
+      },
+      "performance": {
+        "loadTimeMs": null,
+        "lcpMs": null,
+        "cls": null,
+        "fidMs": null,
+        "tbtMs": null
+      },
+      "metadata": {
+        "title": "About",
+        "authRequired": false,
+        "requiredRoles": [],
+        "custom": {
+          "filePath": "/Volumes/Mango/scratchpad/shiprite/akg/test/fixtures/basic-app/app/about/page.tsx",
+          "hasLayout": false,
+          "hasLoading": false,
+          "hasError": false,
+          "hasNotFound": false,
+          "isParallel": false,
+          "isIntercepting": false
+        }
+      }
+    },
+    {
+      "id": "screen:/dashboard",
+      "type": "screen",
+      "name": "Dashboard",
+      "route": "/dashboard",
+      "source": "code",
+      "elements": [],
+      "onLoadApiCalls": [],
+      "accessibility": {
+        "score": null,
+        "violations": []
+      },
+      "performance": {
+        "loadTimeMs": null,
+        "lcpMs": null,
+        "cls": null,
+        "fidMs": null,
+        "tbtMs": null
+      },
+      "metadata": {
+        "title": "Dashboard",
+        "authRequired": true,
+        "requiredRoles": [],
+        "custom": {
+          "filePath": "/Volumes/Mango/scratchpad/shiprite/akg/test/fixtures/basic-app/app/dashboard/page.tsx",
+          "hasLayout": false,
+          "hasLoading": false,
+          "hasError": false,
+          "hasNotFound": false,
+          "isParallel": false,
+          "isIntercepting": false
+        }
+      }
+    },
+    {
+      "id": "screen:/login",
+      "type": "screen",
+      "name": "Login",
+      "route": "/login",
+      "source": "code",
+      "elements": [
+        {
+          "id": "el:screen:/login:email",
+          "type": "input",
+          "selector": "input[name='email']",
+          "label": "Email",
+          "state": "enabled",
+          "isInteractive": true,
+          "isDead": false,
+          "inputType": "email",
+          "placeholder": "Email",
+          "aria": {}
+        },
+        {
+          "id": "el:screen:/login:password",
+          "type": "input",
+          "selector": "input[name='password']",
+          "label": "Password",
+          "state": "enabled",
+          "isInteractive": true,
+          "isDead": false,
+          "inputType": "password",
+          "placeholder": "Password",
+          "aria": {}
+        }
+      ],
+      "onLoadApiCalls": [],
+      "accessibility": {
+        "score": null,
+        "violations": []
+      },
+      "performance": {
+        "loadTimeMs": null,
+        "lcpMs": null,
+        "cls": null,
+        "fidMs": null,
+        "tbtMs": null
+      },
+      "metadata": {
+        "title": "Login",
+        "authRequired": false,
+        "requiredRoles": [],
+        "custom": {
+          "filePath": "/Volumes/Mango/scratchpad/shiprite/akg/test/fixtures/basic-app/app/login/page.tsx",
+          "hasLayout": false,
+          "hasLoading": false,
+          "hasError": false,
+          "hasNotFound": false,
+          "isParallel": false,
+          "isIntercepting": false
+        }
+      }
+    },
+    {
+      "id": "screen:/users/:id",
+      "type": "screen",
+      "name": "Users / :id",
+      "route": "/users/:id",
+      "source": "code",
+      "elements": [],
+      "onLoadApiCalls": [],
+      "accessibility": {
+        "score": null,
+        "violations": []
+      },
+      "performance": {
+        "loadTimeMs": null,
+        "lcpMs": null,
+        "cls": null,
+        "fidMs": null,
+        "tbtMs": null
+      },
+      "metadata": {
+        "title": "Users / :id",
+        "authRequired": false,
+        "requiredRoles": [],
+        "custom": {
+          "filePath": "/Volumes/Mango/scratchpad/shiprite/akg/test/fixtures/basic-app/app/users/[id]/page.tsx",
+          "hasLayout": false,
+          "hasLoading": false,
+          "hasError": false,
+          "hasNotFound": false,
+          "isParallel": false,
+          "isIntercepting": false
+        }
+      },
+      "pathParams": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:screen:/:screen:/about:click",
+      "type": "navigation",
+      "from": "screen:/",
+      "to": "screen:/about",
+      "source": "code",
+      "trigger": "click",
+      "elementId": null,
+      "requiresAuth": false,
+      "requiredRoles": [],
+      "apiCalls": [],
+      "stateChanges": [],
+      "timingMs": null,
+      "metadata": {
+        "detectedIn": "/Volumes/Mango/scratchpad/shiprite/akg/test/fixtures/basic-app/app/page.tsx"
+      },
+      "navigationType": "spa"
+    },
+    {
+      "id": "edge:screen:/:screen:/login:click",
+      "type": "navigation",
+      "from": "screen:/",
+      "to": "screen:/login",
+      "source": "code",
+      "trigger": "click",
+      "elementId": null,
+      "requiresAuth": false,
+      "requiredRoles": [],
+      "apiCalls": [],
+      "stateChanges": [],
+      "timingMs": null,
+      "metadata": {
+        "detectedIn": "/Volumes/Mango/scratchpad/shiprite/akg/test/fixtures/basic-app/app/page.tsx"
+      },
+      "navigationType": "spa"
+    },
+    {
+      "id": "edge:screen:/:screen:/dashboard:click",
+      "type": "navigation",
+      "from": "screen:/",
+      "to": "screen:/dashboard",
+      "source": "code",
+      "trigger": "click",
+      "elementId": null,
+      "requiresAuth": false,
+      "requiredRoles": [],
+      "apiCalls": [],
+      "stateChanges": [],
+      "timingMs": null,
+      "metadata": {
+        "detectedIn": "/Volumes/Mango/scratchpad/shiprite/akg/test/fixtures/basic-app/app/page.tsx"
+      },
+      "navigationType": "spa"
+    },
+    {
+      "id": "edge:screen:/about:screen:/:click",
+      "type": "navigation",
+      "from": "screen:/about",
+      "to": "screen:/",
+      "source": "code",
+      "trigger": "click",
+      "elementId": null,
+      "requiresAuth": false,
+      "requiredRoles": [],
+      "apiCalls": [],
+      "stateChanges": [],
+      "timingMs": null,
+      "metadata": {
+        "detectedIn": "/Volumes/Mango/scratchpad/shiprite/akg/test/fixtures/basic-app/app/about/page.tsx"
+      },
+      "navigationType": "spa"
+    },
+    {
+      "id": "edge:screen:/login:screen:/api/auth/login:submit",
+      "type": "formSubmit",
+      "from": "screen:/login",
+      "to": "screen:/api/auth/login",
+      "source": "code",
+      "trigger": "submit",
+      "elementId": null,
+      "requiresAuth": false,
+      "requiredRoles": [],
+      "apiCalls": [],
+      "stateChanges": [],
+      "timingMs": null,
+      "metadata": {
+        "detectedIn": "/Volumes/Mango/scratchpad/shiprite/akg/test/fixtures/basic-app/app/login/page.tsx"
+      },
+      "formFields": [
+        {
+          "name": "Email",
+          "inputType": "email",
+          "required": false
+        },
+        {
+          "name": "Password",
+          "inputType": "password",
+          "required": false
+        }
+      ],
+      "formMethod": "POST",
+      "isMultipart": false
+    }
+  ],
+  "endpoints": [
+    {
+      "id": "api:POST:/api/auth/login",
+      "method": "POST",
+      "path": "/api/auth/login",
+      "source": "code",
+      "contentType": "application/json",
+      "authRequired": false,
+      "requiredRoles": [],
+      "calledOnLoadBy": [],
+      "calledByEdges": []
+    },
+    {
+      "id": "api:GET:/api/users",
+      "method": "GET",
+      "path": "/api/users",
+      "source": "code",
+      "contentType": "application/json",
+      "authRequired": false,
+      "requiredRoles": [],
+      "calledOnLoadBy": [],
+      "calledByEdges": []
+    },
+    {
+      "id": "api:POST:/api/users",
+      "method": "POST",
+      "path": "/api/users",
+      "source": "code",
+      "contentType": "application/json",
+      "authRequired": false,
+      "requiredRoles": [],
+      "calledOnLoadBy": [],
+      "calledByEdges": []
+    }
+  ],
+  "findings": [],
+  "apiReconciliation": {
+    "deadEndpoints": [],
+    "undocumentedEndpoints": [],
+    "authMismatches": []
+  },
+  "entryNodeId": "screen:/"
+}

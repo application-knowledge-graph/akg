@@ -1,0 +1,35 @@
+{
+  "name": "@akg/extractor-nextjs",
+  "version": "0.1.0",
+  "description": "AKG extractor for Next.js App Router — static analysis of routes, APIs, navigation, auth, and forms",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@akg/core": "workspace:*",
+    "@akg/types": "workspace:*",
+    "fast-glob": "^3.3.0",
+    "ts-morph": "^25.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

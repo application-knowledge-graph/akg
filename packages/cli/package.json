@@ -1,0 +1,30 @@
+{
+  "name": "@akg/cli",
+  "version": "0.1.0",
+  "description": "CLI tool for generating, validating, and querying Application Knowledge Graphs",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "akg": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "@akg/core": "workspace:*",
+    "@akg/extractor-nextjs": "workspace:*",
+    "@akg/schema": "workspace:*",
+    "chalk": "^5.4.0",
+    "commander": "^13.0.0",
+    "ora": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.0"
+  }
+}
