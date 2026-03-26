@@ -2,7 +2,7 @@ import type { AKGGraph } from '../graph.js';
 
 /**
  * Find all paths between two nodes using DFS with cycle detection.
- * Returns arrays of edge IDs for each path found.
+ * Returns arrays of node IDs for each path found (including start and end nodes).
  */
 export function traverse(
   graph: AKGGraph,
@@ -15,7 +15,7 @@ export function traverse(
 
   function dfs(current: string, path: string[], depth: number): void {
     if (depth > maxDepth) return;
-    if (current === to && path.length > 0) {
+    if (current === to && path.length > 1) {
       paths.push([...path]);
       return;
     }
@@ -25,7 +25,7 @@ export function traverse(
 
     for (const edge of outgoing) {
       if (visited.has(edge.to) && edge.to !== to) continue;
-      path.push(edge.id);
+      path.push(edge.to);
       dfs(edge.to, path, depth + 1);
       path.pop();
     }
@@ -33,6 +33,6 @@ export function traverse(
     visited.delete(current);
   }
 
-  dfs(from, [], 0);
+  dfs(from, [from], 0);
   return paths;
 }
