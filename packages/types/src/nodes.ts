@@ -1,5 +1,6 @@
 import type { AKGElement } from './elements.js';
 import type { ApiCallReference } from './api.js';
+import type { ScreenCertificate } from './certificate.js';
 
 /** How a node/edge/element was discovered. */
 export type AKGSource = 'code' | 'exploration' | 'both' | 'documentation';
@@ -79,6 +80,8 @@ export interface AKGNodeBase {
   accessibility: AccessibilityInfo;
   performance: PerformanceMetrics;
   metadata: NodeMetadata;
+  /** Screen Contract certification, present when the node was rendered and certified. */
+  certificate?: ScreenCertificate;
   lastObserved?: string;
 }
 

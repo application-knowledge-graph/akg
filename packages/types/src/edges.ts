@@ -1,5 +1,6 @@
 import type { AKGSource } from './nodes.js';
 import type { ApiCallReference } from './api.js';
+import type { EdgeTraversal } from './certificate.js';
 
 /** Discriminant for edge type. */
 export type EdgeType =
@@ -56,6 +57,8 @@ export interface AKGEdgeBase {
   apiCalls: ApiCallReference[];
   stateChanges: StateChange[];
   timingMs: number | null;
+  /** Crawl-execution provenance, present when the edge came from a live crawl. */
+  traversal?: EdgeTraversal;
   metadata: Record<string, unknown>;
 }
 
