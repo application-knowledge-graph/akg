@@ -63,6 +63,20 @@ export type {
   ApiReconciliation,
 } from './api.js';
 
+// Screen Contract certification
+export type {
+  ViolationSeverity,
+  ContractViolation,
+  ScreenCertificate,
+  EdgeTraversalStatus,
+  EdgeTraversal,
+  OracleResult,
+  StepResult,
+  JourneyCertificate,
+  StateVariant,
+  StateCertificate,
+} from './certificate.js';
+
 // Findings
 export type { FindingSeverity, AKGFinding, ReconciliationRule } from './findings.js';
 export { RECONCILIATION_RULES } from './findings.js';

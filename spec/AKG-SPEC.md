@@ -178,6 +178,9 @@ interface AKGNodeBase {
   /** Arbitrary metadata. */
   metadata: NodeMetadata;
 
+  /** Screen Contract certification, present when the node was rendered and certified. */
+  certificate?: ScreenCertificate;
+
   /** ISO 8601 timestamp of when this node was last observed. */
   lastObserved?: string;
 }
@@ -228,6 +231,23 @@ interface NodeMetadata {
   requiredRoles: string[];
   /** Arbitrary key-value pairs for extensions. */
   custom: Record<string, unknown>;
+}
+
+interface ScreenCertificate {
+  /** 'pass' iff no error-severity violation; warnings do not fail the certificate. */
+  status: 'pass' | 'fail' | 'error';
+  violations: ContractViolation[];
+  /** Device the layout was computed against, e.g. "390x844". */
+  device?: string;
+}
+
+interface ContractViolation {
+  /** Which invariant fired, e.g. 'tappable', 'hit-target', 'below-fold', 'no-text-overlap'. */
+  invariant: string;
+  /** The element the invariant is about, when element-scoped. */
+  target?: string;
+  detail: string;
+  severity: 'error' | 'warn';
 }
 ```
 
@@ -360,8 +380,24 @@ interface AKGEdgeBase {
   /** Time taken for the transition in milliseconds. */
   timingMs: number | null;
 
+  /** Crawl-execution provenance, present when the edge came from a live crawl. */
+  traversal?: EdgeTraversal;
+
   /** Arbitrary metadata. */
   metadata: Record<string, unknown>;
+}
+
+interface EdgeTraversal {
+  /**
+   * 'traversed' = fired the trigger and observed the resulting node.
+   * 'declared'  = recorded from the graph but deliberately not fired (external / destructive / back).
+   * 'blocked'   = attempted but could not complete (fixture gap, render error).
+   */
+  status: 'traversed' | 'declared' | 'blocked';
+  /** The edge's effect crossed the write boundary (POST/PATCH/PUT/DELETE observed). */
+  mutating: boolean;
+  /** Why an edge was declared or blocked. */
+  reason?: string;
 }
 
 type EdgeType =

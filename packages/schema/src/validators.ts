@@ -192,6 +192,19 @@ export const ParamDefinitionSchema = z.object({
   description: z.string().optional(),
 });
 
+export const ContractViolationSchema = z.object({
+  invariant: z.string(),
+  target: z.string().optional(),
+  detail: z.string(),
+  severity: z.enum(['error', 'warn']),
+});
+
+export const ScreenCertificateSchema = z.object({
+  status: z.enum(['pass', 'fail', 'error']),
+  violations: z.array(ContractViolationSchema),
+  device: z.string().optional(),
+});
+
 const AKGNodeBaseFields = {
   id: z.string(),
   type: z.string(),
@@ -204,6 +217,7 @@ const AKGNodeBaseFields = {
   accessibility: AccessibilityInfoSchema,
   performance: PerformanceMetricsSchema,
   metadata: NodeMetadataSchema,
+  certificate: ScreenCertificateSchema.optional(),
   lastObserved: z.string().optional(),
 } as const;
 
@@ -280,6 +294,12 @@ export const FormFieldInfoSchema = z.object({
   validation: z.string().optional(),
 });
 
+export const EdgeTraversalSchema = z.object({
+  status: z.enum(['traversed', 'declared', 'blocked']),
+  mutating: z.boolean(),
+  reason: z.string().optional(),
+});
+
 const AKGEdgeBaseFields = {
   id: z.string(),
   type: z.string(),
@@ -293,6 +313,7 @@ const AKGEdgeBaseFields = {
   apiCalls: z.array(ApiCallReferenceSchema),
   stateChanges: z.array(StateChangeSchema),
   timingMs: z.number().nullable(),
+  traversal: EdgeTraversalSchema.optional(),
   metadata: z.record(z.unknown()),
 } as const;
 
