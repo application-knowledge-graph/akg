@@ -129,6 +129,8 @@ function mergeNodes(code: AKGNode, exploration: AKGNode): AKGNode {
     screenshot: exploration.screenshot ?? code.screenshot,
     domSnapshot: exploration.domSnapshot ?? code.domSnapshot,
     lastObserved: exploration.lastObserved ?? code.lastObserved,
+    // Screen Contract certificate is render-time provenance: exploration-only.
+    certificate: exploration.certificate ?? code.certificate,
     // Prefer code for structural data
     metadata: {
       ...code.metadata,
@@ -148,6 +150,8 @@ function mergeEdges(code: AKGEdge, exploration: AKGEdge): AKGEdge {
     ...code,
     source: 'both',
     timingMs: exploration.timingMs ?? code.timingMs,
+    // Edge traversal status is crawl-execution provenance: exploration-only.
+    traversal: exploration.traversal ?? code.traversal,
     apiCalls: [
       ...code.apiCalls,
       ...exploration.apiCalls.filter(

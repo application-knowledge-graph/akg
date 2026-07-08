@@ -88,7 +88,8 @@ describe('AKGGraph', () => {
 
     const paths = graph.traverse('screen:/', 'screen:/contact');
     expect(paths).toHaveLength(1);
-    expect(paths[0]).toHaveLength(2);
+    // traverse returns NODE ids, not edges: /, /about, /contact = 3 nodes (2 hops).
+    expect(paths[0]).toHaveLength(3);
   });
 
   it('should compute reachability', () => {
