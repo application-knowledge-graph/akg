@@ -45,3 +45,55 @@ export interface EdgeTraversal {
   /** Why an edge was declared or blocked. */
   reason?: string;
 }
+
+/**
+ * Journey Prover certification — the layer above Screen Contract: proof that a
+ * mined multi-step journey (a sequence of edge traversals from an entry node to a
+ * terminal) actually works end to end under a tiered oracle ladder. T0 is
+ * mechanical (no crash, non-blank, a real feedback signal, the graph and app agree
+ * on where a trigger lands); T1 holds for journeys that write (the write renders
+ * where its table is read, row count is conserved, no double-submit); T2 is
+ * report-only intent oracles until a human approves them.
+ */
+
+/** One oracle check run against a journey, tiered by trust. */
+export interface OracleResult {
+  tier: 't0' | 't1' | 't2';
+  /** Which check fired, e.g. 'blank-screen', 'journey-drift', 'db-conservation'. */
+  kind: string;
+  ok: boolean;
+  /** True for T2 checks that are findings-only until their spec is approved. */
+  reportOnly: boolean;
+  detail: string;
+}
+
+/** The certified outcome of firing one step of a mined journey. */
+export interface StepResult {
+  trigger: string;
+  to: string;
+  /** How the step proved it did something: navigation, contract diff, a network request, or a declared no-op. */
+  feedback: 'route' | 'contract' | 'request' | 'inert';
+  violations: ContractViolation[];
+  ok: boolean;
+}
+
+/** The certification result for one mined journey walked end to end. */
+export interface JourneyCertificate {
+  journeyId: string;
+  /** 'failed' iff any error-severity oracle or step; 'findings' iff only report-only misses; else 'proven'. */
+  status: 'proven' | 'failed' | 'findings';
+  steps: StepResult[];
+  oracles: OracleResult[];
+  durationMs: number;
+}
+
+/** The three remote states every data-backed screen must survive. */
+export type StateVariant = 'empty' | 'error' | 'pending';
+
+/** The certification result for one screen rendered under one state variant. */
+export interface StateCertificate {
+  nodeId: string;
+  variant: StateVariant;
+  status: 'pass' | 'finding' | 'crash';
+  detail?: string;
+}

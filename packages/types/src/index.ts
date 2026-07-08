@@ -70,6 +70,11 @@ export type {
   ScreenCertificate,
   EdgeTraversalStatus,
   EdgeTraversal,
+  OracleResult,
+  StepResult,
+  JourneyCertificate,
+  StateVariant,
+  StateCertificate,
 } from './certificate.js';
 
 // Findings
